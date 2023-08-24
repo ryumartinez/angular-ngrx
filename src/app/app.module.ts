@@ -7,6 +7,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import {itemsReducer} from "./state/reducers/items.reducer";
+import {ROOT_REDUCER} from "./app.state";
 
 
 
@@ -18,9 +19,7 @@ import {itemsReducer} from "./state/reducers/items.reducer";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({
-      estadoDeItems: itemsReducer
-    }),
+    StoreModule.forRoot(ROOT_REDUCER),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],
